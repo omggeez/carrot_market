@@ -6,7 +6,7 @@ import Link from "next/link";
 const Profile: NextPage = () => {
   return (
     <Layout title="Profile" hasTabBar>
-      <div className="pb-16 px-4">
+      <div className="py-4 px-4">
         <Link href={"/profile/edit"}>
           <a className="inline-flex items-center space-x-3">
             <div className="w-16 h-16 bg-slate-500 rounded-full" />

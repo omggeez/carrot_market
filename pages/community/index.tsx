@@ -6,7 +6,7 @@ import CommunityItem from "../../components/items/community-item";
 const Community: NextPage = () => {
   return (
     <Layout title="Community" hasTabBar>
-      <div className="px-4 space-y-8">
+      <div className="px-4 py-4 space-y-8">
         {[1, 2, 3, 4, 5, 6].map((_, i) => (
           <CommunityItem
             key={i}
