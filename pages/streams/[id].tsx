@@ -1,7 +1,7 @@
+import MessageInput from "@components/inputs/message-input";
+import MessageItem from "@components/items/message-item";
+import Layout from "@components/layout";
 import { NextPage } from "next";
-import MessageItem from "../../components/items/message-item";
-import MessageInput from "../../components/inputs/message-input";
-import Layout from "../../components/layout";
 
 const StreamDetail: NextPage = () => {
   return (

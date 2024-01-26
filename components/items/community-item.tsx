@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Tag, { TagType } from "./tag";
-import ReactionButton from "../buttons/reaction-button";
+import ReactionButton from "@components/buttons/reaction-button";
 
 interface CommunityItemProps {
   id: number;

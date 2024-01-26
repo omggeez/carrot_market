@@ -1,14 +1,34 @@
+import Button from "@components/buttons/button";
+import LinkButton from "@components/buttons/link-button";
+import Input from "@components/inputs/input";
+import useMutation from "@libs/client/use-mutation";
+import { cls } from "@libs/client/utils";
 import { useState } from "react";
-import { cls } from "../libs/utils";
-import Input from "../components/inputs/input";
-import Button from "../components/buttons/button";
-import LinkButton from "../components/buttons/link-button";
+import { useForm } from "react-hook-form";
+
+interface EnterForm {
+  email?: string;
+  phone?: string;
+}
 
 export default function Enter() {
+  const [enter, { loading, data, error }] = useMutation("/api/users/enter");
+  const [submitting, setSubmitting] = useState(false);
+  const { register, handleSubmit, reset } = useForm<EnterForm>();
   const [method, setMethod] = useState<"email" | "phone">("email");
 
-  const onEmailClick = () => setMethod("email");
-  const onPhoneClick = () => setMethod("phone");
+  const onEmailClick = () => {
+    reset();
+    setMethod("email");
+  };
+  const onPhoneClick = () => {
+    reset();
+    setMethod("phone");
+  };
+
+  const onValid = (validForm: EnterForm) => {
+    enter(validForm);
+  };
 
   return (
     <div className="mt-16 px-4">
@@ -41,17 +61,31 @@ export default function Enter() {
             </button>
           </div>
         </div>
-        <form className="flex flex-col mt-8">
+        <form onSubmit={handleSubmit(onValid)} className="flex flex-col mt-8">
           <div className="mt-1">
             {method === "email" ? (
-              <Input type="email" label="Email address" name="email" required />
+              <Input
+                register={register("email", { required: true })}
+                type="email"
+                label="Email address"
+                name="email"
+              />
             ) : null}
             {method === "phone" ? (
-              <Input type="phone" label="Phone number" name="phone" required />
+              <Input
+                register={register("phone", { required: true })}
+                type="phone"
+                label="Phone number"
+                name="phone"
+              />
             ) : null}
           </div>
-          {method === "email" ? <Button label="Get login link" /> : null}
-          {method === "phone" ? <Button label="Get one-time password" /> : null}
+          {method === "email" ? (
+            <Button label={submitting ? "Loading" : "Get login link"} />
+          ) : null}
+          {method === "phone" ? (
+            <Button label={submitting ? "Loading" : "Get one-time password"} />
+          ) : null}
         </form>
         <div className="mt-8">
           <div className="relative">

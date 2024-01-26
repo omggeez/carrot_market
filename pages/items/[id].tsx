@@ -1,8 +1,8 @@
+import Button from "@components/buttons/button";
+import IconButton from "@components/buttons/icon-button";
+import PreviewItem from "@components/items/preview-item";
+import Layout from "@components/layout";
 import type { NextPage } from "next";
-import Layout from "../../components/layout";
-import Button from "../../components/buttons/button";
-import IconButton from "../../components/buttons/icon-button";
-import PreviewItem from "../../components/items/preview-item";
 
 const ItemDetail: NextPage = () => {
   return (

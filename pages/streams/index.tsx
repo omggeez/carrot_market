@@ -1,7 +1,7 @@
+import FloatingButton from "@components/buttons/floating-button";
+import StreamItem from "@components/items/stream-item";
+import Layout from "@components/layout";
 import { NextPage } from "next";
-import Layout from "../../components/layout";
-import FloatingButton from "../../components/buttons/floating-button";
-import StreamItem from "../../components/items/stream-item";
 
 const Streams: NextPage = () => {
   return (

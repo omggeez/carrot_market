@@ -1,7 +1,7 @@
+import Button from "@components/buttons/button";
+import Input from "@components/inputs/input";
+import Layout from "@components/layout";
 import { NextPage } from "next";
-import Layout from "../../components/layout";
-import Input from "../../components/inputs/input";
-import Button from "../../components/buttons/button";
 
 const CommunityWrite: NextPage = () => {
   return (

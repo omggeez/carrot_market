@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { cls } from "../libs/utils";
+import { cls } from "@libs/client/utils";
 import { useRouter } from "next/router";
 import MenuItem from "./items/menu-item";
 
@@ -173,8 +172,8 @@ export default function Layout({
 
       {hasTabBar ? (
         <nav className="bg-white w-full max-w-xl text-xs font-medium px-10 py-6 fixed text-gray-700 border-t bottom-0 flex items-center justify-between">
-          {MENU_LIST.map((menu) => (
-            <MenuItem href={menu.href} label={menu.label}>
+          {MENU_LIST.map((menu, i) => (
+            <MenuItem key={i} href={menu.href} label={menu.label}>
               {menu.svg}
             </MenuItem>
           ))}

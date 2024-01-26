@@ -1,6 +1,6 @@
+import RoundedButton from "@components/buttons/rounded-button";
+import Layout from "@components/layout";
 import type { NextPage } from "next";
-import Layout from "../../components/layout";
-import RoundedButton from "../../components/buttons/rounded-button";
 import Link from "next/link";
 
 const Profile: NextPage = () => {

@@ -1,6 +1,6 @@
+import { cls } from "@libs/client/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { cls } from "../../libs/utils";
 
 interface MenuItemProps {
   href: string;

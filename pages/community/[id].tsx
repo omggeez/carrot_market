@@ -1,10 +1,10 @@
+import Button from "@components/buttons/button";
+import ReactionButton from "@components/buttons/reaction-button";
+import Input from "@components/inputs/input";
+import CommentItem from "@components/items/comment-item";
+import Tag from "@components/items/tag";
+import Layout from "@components/layout";
 import type { NextPage } from "next";
-import Layout from "../../components/layout";
-import Input from "../../components/inputs/input";
-import Button from "../../components/buttons/button";
-import Tag from "../../components/items/tag";
-import ReactionButton from "../../components/buttons/reaction-button";
-import CommentItem from "../../components/items/comment-item";
 
 const CommunityDetail: NextPage = () => {
   return (

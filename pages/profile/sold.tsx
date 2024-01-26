@@ -1,6 +1,6 @@
+import Item from "@components/items/item";
+import Layout from "@components/layout";
 import { NextPage } from "next";
-import Layout from "../../components/layout";
-import Item from "../../components/items/item";
 
 const Sold: NextPage = () => {
   return (
