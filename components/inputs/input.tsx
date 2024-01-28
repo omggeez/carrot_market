@@ -12,7 +12,7 @@ interface InputProps {
     | "file";
   label: string;
   name: string;
-  register?: UseFormRegisterReturn;
+  register: UseFormRegisterReturn;
 
   [key: string]: any;
 }
@@ -119,6 +119,7 @@ export default function Input({
       {type === "textarea" ? (
         <textarea
           id={name}
+          {...register}
           {...rest}
           className="mt-1 shadow-sm w-full focus:ring-orange-500 rounded-md border-gray-300 focus:border-orange-500"
         />

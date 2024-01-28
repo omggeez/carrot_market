@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface ItemProps {
+interface ProductItemProps {
   id: number;
   title: string;
   desc: string;
@@ -9,16 +9,16 @@ interface ItemProps {
   comments: number;
 }
 
-export default function Item({
+export default function ProductItem({
   id,
   title,
   desc,
   price,
   likes,
   comments,
-}: ItemProps) {
+}: ProductItemProps) {
   return (
-    <Link href={`/items/${id}`}>
+    <Link href={`/products/${id}`}>
       <a className="flex justify-between border-b px-4 py-4 cursor-pointer">
         <div className="flex space-x-4">
           <div className="w-20 h-20 bg-gray-400 rounded-md" />

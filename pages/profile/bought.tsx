@@ -1,4 +1,4 @@
-import Item from "@components/items/item";
+import Item from "@components/items/product-item";
 import Layout from "@components/layout";
 import { NextPage } from "next";
 
