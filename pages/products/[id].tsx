@@ -22,19 +22,19 @@ interface ProductDetailResponse {
 
 const ProductDetail: NextPage = () => {
   const router = useRouter();
-  const { data, mutate: boundMutate } = useSWR<ProductDetailResponse>(
+  const { data, mutate } = useSWR<ProductDetailResponse>(
     router.query.id ? `/api/products/${router.query.id}` : null
   );
   const [toggleFav] = useMutation(`/api/products/${router.query.id}/favorite`);
 
   const onFavoriteClick = () => {
     if (!data) return;
-    boundMutate((prev) => prev && { ...prev, isLiked: !prev.isLiked }, false);
+    mutate((prev) => prev && { ...prev, isLiked: !prev.isLiked }, false);
     toggleFav({});
   };
 
   return (
-    <Layout canGoBack>
+    <Layout title="Product Detail" canGoBack>
       <div className="px-4 py-10">
         <div className="mb-8">
           <div className="h-96 bg-slate-300" />

@@ -2,21 +2,25 @@ import Link from "next/link";
 import Tag, { TagType } from "./tag";
 import ReactionButton from "@components/buttons/reaction-button";
 
-interface CommunityItemProps {
+interface PostItemProps {
   id: number;
   tag: TagType;
   question: string;
   writer: string;
   writeDate: string;
+  likeCount: number;
+  answerCount: number;
 }
 
-export default function CommunityItem({
+export default function PostItem({
   id,
   tag,
   question,
   writer,
   writeDate,
-}: CommunityItemProps) {
+  likeCount,
+  answerCount,
+}: PostItemProps) {
   return (
     <Link href={`/community/${id}`}>
       <a className="flex flex-col items-start cursor-pointer">
@@ -32,7 +36,7 @@ export default function CommunityItem({
         </div>
 
         <div className="flex space-x-5 mt-3 text-gray-700 py-2.5 border-t border-b-2 w-full">
-          <ReactionButton label={"Like"} count={1}>
+          <ReactionButton label={"Likes"} count={likeCount}>
             <svg
               className="w-4 h-4"
               fill="none"
@@ -49,7 +53,7 @@ export default function CommunityItem({
             </svg>
           </ReactionButton>
 
-          <ReactionButton label={"Comments"} count={1}>
+          <ReactionButton label={"Answers"} count={answerCount}>
             <svg
               className="w-4 h-4"
               fill="none"

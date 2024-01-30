@@ -5,7 +5,7 @@ import { NextPage } from "next";
 
 const StreamCreate: NextPage = () => {
   return (
-    <Layout canGoBack>
+    <Layout title="Create Stream" canGoBack>
       <div className="py-10 px-4 space-y-5">
         <div>
           <Input type="text" label="Name" name="name" />

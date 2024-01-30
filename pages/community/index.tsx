@@ -1,20 +1,45 @@
 import FloatingButton from "@components/buttons/floating-button";
-import CommunityItem from "@components/items/community-item";
+import PostItem from "@components/items/post-item";
 import Layout from "@components/layout";
+import useCoords from "@libs/client/use-coords";
+import { Post, User } from "@prisma/client";
 import type { NextPage } from "next";
+import useSWR from "swr";
+
+interface PostWithUser extends Post {
+  user: User;
+  _count: {
+    likes: number;
+    answers: number;
+  };
+}
+
+interface PostsResponse {
+  ok: boolean;
+  posts: PostWithUser[];
+}
 
 const Community: NextPage = () => {
+  const { latitude, longitude } = useCoords();
+  const { data } = useSWR<PostsResponse>(
+    latitude && longitude
+      ? `/api/posts?latitude=${latitude}&longitude=${longitude}`
+      : null
+  );
+
   return (
     <Layout title="Community" hasTabBar>
       <div className="px-4 py-4 space-y-8">
-        {[1, 2, 3, 4, 5, 6].map((_, i) => (
-          <CommunityItem
-            key={i}
-            id={i}
+        {data?.posts.map((post) => (
+          <PostItem
+            key={post.id}
+            id={post.id}
             tag={"daily"}
-            question={"What is the best mandu restaurant?"}
-            writer={"Peter Parker"}
-            writeDate={"18 hours ago"}
+            question={post.question}
+            writer={post.user.name}
+            writeDate={post.createdAt + ""}
+            likeCount={post._count?.likes}
+            answerCount={post._count?.answers}
           />
         ))}
         <FloatingButton href="/community/write">

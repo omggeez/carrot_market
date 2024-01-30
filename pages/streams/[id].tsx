@@ -5,7 +5,7 @@ import { NextPage } from "next";
 
 const StreamDetail: NextPage = () => {
   return (
-    <Layout canGoBack>
+    <Layout title="Stream Detail" canGoBack>
       <div className="py-10 px-4 space-y-4">
         <div className="w-full rounded-md shadow-sm bg-slate-300 aspect-video" />
         <h3 className="text-gray-800 font-semibold text-2xl mt-2">

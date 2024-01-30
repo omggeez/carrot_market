@@ -5,7 +5,7 @@ import type { NextPage } from "next";
 
 const ChatDetail: NextPage = () => {
   return (
-    <Layout canGoBack>
+    <Layout title="Chat Detail" canGoBack>
       <div className="flex flex-col h-[80vh] pt-10 pb-16 px-4 space-y-4 overflow-y-auto">
         <MessageItem message={"Hi how much are you selling them for?"} />
         <MessageItem message={"I want $50"} reversed />

@@ -39,7 +39,7 @@ const ProductUpload: NextPage = () => {
   }, [data]);
 
   return (
-    <Layout canGoBack>
+    <Layout title="Upload Product" canGoBack>
       <form onSubmit={handleSubmit(onValid)} className="px-4 space-y-5 py-16">
         <div>
           <Input

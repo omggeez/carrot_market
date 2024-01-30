@@ -1,14 +1,14 @@
-interface CommentItemProps {
+interface AnswerItemProps {
   writer: string;
   writeDate: string;
   content: string;
 }
 
-export default function CommentItem({
+export default function AnswerItem({
   writer,
   writeDate,
   content,
-}: CommentItemProps) {
+}: AnswerItemProps) {
   return (
     <div className="flex items-start space-x-3">
       <div className="w-8 h-8 bg-slate-200 rounded-full" />

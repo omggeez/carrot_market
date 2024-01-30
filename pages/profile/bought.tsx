@@ -4,7 +4,7 @@ import { NextPage } from "next";
 
 const Bought: NextPage = () => {
   return (
-    <Layout canGoBack>
+    <Layout title="Bought List" canGoBack>
       <div className="flex flex-col space-y-5 py-10">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
           <Item

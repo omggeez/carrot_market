@@ -164,7 +164,14 @@ export default function Layout({
           </button>
         ) : null}
         {title ? (
-          <span className={canGoBack ? "mx-auto" : ""}>{title}</span>
+          <span
+            className={cls(
+              "text-gray-700 font-bold text-lg",
+              canGoBack ? "mx-auto" : ""
+            )}
+          >
+            {title}
+          </span>
         ) : null}
       </div>
 
