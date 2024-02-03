@@ -1,8 +1,11 @@
+import useUser from "@libs/client/use-user";
 import "@styles/globals.css";
 import type { AppProps } from "next/app";
 import { SWRConfig } from "swr";
 
 function App({ Component, pageProps }: AppProps) {
+  const {} = useUser();
+
   return (
     <SWRConfig
       value={{

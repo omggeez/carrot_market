@@ -1,14 +1,28 @@
 import FloatingButton from "@components/buttons/floating-button";
 import StreamItem from "@components/items/stream-item";
 import Layout from "@components/layout";
+import { Stream } from "@prisma/client";
 import { NextPage } from "next";
+import useSWR from "swr";
+
+interface StreamsResponse {
+  ok: boolean;
+  streams: Stream[];
+}
 
 const Streams: NextPage = () => {
+  const { data } = useSWR<StreamsResponse>(`/api/streams`);
+
   return (
     <Layout title="Streams" hasTabBar>
       <div className="pb-10 divide-y-2 space-y-4">
-        {[1, 2, 3, 4, 5, 6].map((_, i) => (
-          <StreamItem key={i} id={i} title={"Let's try potatos"} />
+        {data?.streams.map((stream) => (
+          <StreamItem
+            key={stream.id}
+            id={stream.id}
+            title={stream.name}
+            price={stream.price}
+          />
         ))}
 
         <FloatingButton href={"/streams/create"}>
